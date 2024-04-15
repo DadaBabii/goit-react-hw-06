@@ -1,12 +1,17 @@
+import { useSelector } from "react-redux";
 import Contact from "../Contact/Contact.jsx";
 
-const ContactList = ({ contacts, onDelete }) => {
+const ContactList = () => {
+  const selectNameFilter = useSelector((state) => state.filters.filters.name);
+  const selectContacts = useSelector((state) => state.contacts.contacts.items);
+  const filteredContacts = selectContacts.filter((item) =>
+    item.name.toLowerCase().includes(selectNameFilter.toLowerCase())
+  );
+
   return (
     <ul>
-      {contacts.map((contact) => {
-        return (
-          <Contact key={contact.id} contact={contact} onDelete={onDelete} />
-        );
+      {filteredContacts.map((contact) => {
+        return <Contact key={contact.id} contact={contact} />;
       })}
     </ul>
   );
