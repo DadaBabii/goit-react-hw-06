@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    border: 2px solid grey;
+    border-radius: 8px;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 20px;
+}
+
+container:last-child {
+    margin-bottom: 0;
+}
